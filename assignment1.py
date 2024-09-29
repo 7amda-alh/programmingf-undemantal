@@ -193,7 +193,7 @@ class Payment:
 # Created objects for customer, hotel room, reservation, and payment.
 customer1 = Customer("123-678", "Ahmed", "Alhosani", "Ahmed@gmail.com", "505-661-1110")
 hotel_room = Room(6234, "1 King Bed", 1000, Availability_Status.AVAILABLE, "Non-smoking")
-reservation = Reservation("12345698", "September 29, 2024", "October 3, 2024", 5000, 2)
+reservation = Reservation("12345698", "September 29, 2024", "October 1, 2024", 5000, 2)
 payment = Payment(3490, 5000, "Mastercard","September 29, 2024", "complete")
 
 #Displayed details
