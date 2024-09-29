@@ -5,13 +5,13 @@ class Availability_Status(Enum):
     BOOKED = "Booked"
 #class representing a customer in the hotel system
 class Customer:
-    def __init__(self, customer_ID, first_Name, last_Name, email, password):
+    def __init__(self, customer_ID, first_Name, last_Name, email, phone_Number):
         #initializing the customer attributes
         self.__customer_ID = customer_ID
         self.__first_Name = first_Name
         self.__last_Name = last_Name
         self.__email = email
-        self.__password =password
+        self.__phone_Number = phone_Number
 
     #getter and setter methods for each attributes for customer:
     def set_customer_ID(self, customer_ID):
@@ -97,12 +97,13 @@ class Room:
         print(f"Room details: Number {self.room_Number}, Type: {self.room_Type}")
 #class representing a reservation made by the customer
 class Reservation:
-    def __init__(self, reservation_ID, check_In_Date, check_Out_Date, total_Cost):
+    def __init__(self, reservation_ID, check_In_Date, check_Out_Date, total_Cost, number_Of_Night):
         # initializing reservation attributes
         self.__reservation_ID = reservation_ID
         self.__check_In_Date = check_In_Date
         self.__check_Out_Date = check_Out_Date
         self.__total_Cost = total_Cost
+        self.__number_Of_Night = number_Of_Night
 
     # getter and setter methods for each attributes for reservation:
     def set_reservation_ID(self, reservation_ID):
@@ -124,6 +125,12 @@ class Reservation:
         self.__total_Cost = total_Cost
     def get_total_Cost(self):
         return self.__total_Cost
+
+    def set_number_Of_Night(self, number_Of_Night):
+        self.__number_Of_Night = number_Of_Night
+    def get_number_Of_Night(self):
+        return self.__number_Of_Night
+
     #function to confirm the reservation
     def confirm_Reservation(self):
         print("Reservation confirmed.")
@@ -184,9 +191,9 @@ class Payment:
         print(f"Payment ID: {self.__payment_ID}, Amount: {self.__amount}, Method: {self.__payment_Method}, Date: {self.__payment_Date}")
 
 # Created objects for customer, hotel room, reservation, and payment.
-customer1 = Customer("123-678", "Ahmed", "Alhosani", "Ahmed@gmail.com", "Ahmed2133")
+customer1 = Customer("123-678", "Ahmed", "Alhosani", "Ahmed@gmail.com", "505-661-1110")
 hotel_room = Room(6234, "1 King Bed", 1000, Availability_Status.AVAILABLE, "Non-smoking")
-reservation = Reservation("12345698", "September 29, 2024", "October 3, 2024", 5000)
+reservation = Reservation("12345698", "September 29, 2024", "October 3, 2024", 5000, 2)
 payment = Payment(3490, 5000, "Mastercard","September 29, 2024", "complete")
 
 #Displayed details
@@ -197,6 +204,7 @@ print(f"Room Details: {hotel_room.get_room_Type()}")
 print(f"Check-in Date: {reservation.get_check_In_Date()}")
 print(f"Check-out Date: {reservation.get_check_Out_Date()}")
 print(f"Total Cost: ${payment.get_amount()}")
+print(f"Number of Nights: {reservation.get_number_Of_Night()}")
 print(f"Payment Status: {payment.get_payment_Status()}")
 print(f"Room Number: {hotel_room.get_room_Number()}")
 print(f"Room Availability: {hotel_room.get_availability_Status().value}")
