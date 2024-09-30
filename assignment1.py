@@ -34,22 +34,22 @@ class Customer:
     def get_email(self):
         return self.__email
 
-    def set_password(self, password):
-        self.__password = password
-    def get_password(self):
-        return self.__password
+    def set_phone_Number(self, phone_Number):
+        self.__phone_Number = phone_Number
+    def get_phone_Number(self):
+        return self.phone_Number
     #function to make a reservation
     def make_Reservation(self, date, room_type):
-        print(f"Reservation made for room type {room_type} on {date}.")
+        pass
     #function to view reservation details
     def view_Reservation(self):
-        print("Reservation details for the customer:")
+        pass
     #function to view charges related to a customer's booking
     def view_Charges(self):
-        print("Display charges: ")
+        pass
     #function for customer to login
     def login(self, email, password):
-        print(f"Logged in with {email}.")
+        pass
 #class representing a hotel room
 class Room:
     def __init__(self, room_Number, room_Type, price, availability_Status, services):
@@ -57,7 +57,7 @@ class Room:
         self.__room_Number = room_Number
         self.__room_Type = room_Type
         self.__price = price
-        self.__availability_Status = availability_Status
+        self.__availability_Status = availability_Status #here i added the enum it will show if it is available or booked
         self.__services= services
 
     # getter and setter methods for each attributes for room:
@@ -88,13 +88,13 @@ class Room:
 
     #function to check room availability for a specific date
     def check_Availability(self, date):
-        print(f"Room availability for {date}: {self.availability_Status}")
+        pass
     #function to book a room
     def book_Room(self, date):
-        print(f"Room booked for {date}")
+        pass
     #function to view room details
     def view_Details(self):
-        print(f"Room details: Number {self.room_Number}, Type: {self.room_Type}")
+        pass
 #class representing a reservation made by the customer
 class Reservation:
     def __init__(self, reservation_ID, check_In_Date, check_Out_Date, total_Cost, number_Of_Night):
@@ -133,16 +133,16 @@ class Reservation:
 
     #function to confirm the reservation
     def confirm_Reservation(self):
-        print("Reservation confirmed.")
+        pass
     #function to cancel the reservation
     def cancel_Reservation(self):
-        print("Reservation cancelled.")
+        pass
     #function to update the reservation details
     def update_Reservation(self, date, room_type):
-        print(f"Reservation updated to {room_type} on {date}.")
+        pass
     #function to view all reservations
     def view_Reservations(self):
-        print("Viewing all reservations.")
+        pass
 
 #class representing a payment made by the customer
 class Payment:
@@ -182,17 +182,17 @@ class Payment:
 
     #function to make the payment
     def make_Payment(self, amount):
-        print(f"Payment of {amount} made successfully.")
+        pass
     #function to refund a payment
     def refund_Payment(self):
-        print("Payment has been refunded.")
+        pass
     #function to view payment details
     def view_Payment_Details(self):
-        print(f"Payment ID: {self.__payment_ID}, Amount: {self.__amount}, Method: {self.__payment_Method}, Date: {self.__payment_Date}")
+        pass
 
 # Created objects for customer, hotel room, reservation, and payment.
 customer1 = Customer("123-678", "Ahmed", "Alhosani", "Ahmed@gmail.com", "505-661-1110")
-hotel_room = Room(6234, "1 King Bed", 1000, Availability_Status.AVAILABLE, "Non-smoking")
+hotel_room = Room(6234, "1 King Bed", 1000, Availability_Status.AVAILABLE, "Non-smoking, and breakfast")
 reservation = Reservation("12345698", "September 29, 2024", "October 1, 2024", 5000, 2)
 payment = Payment(3490, 5000, "Mastercard","September 29, 2024", "complete")
 
@@ -208,5 +208,6 @@ print(f"Number of Nights: {reservation.get_number_Of_Night()}")
 print(f"Payment Status: {payment.get_payment_Status()}")
 print(f"Room Number: {hotel_room.get_room_Number()}")
 print(f"Room Availability: {hotel_room.get_availability_Status().value}")
+print(f"Room services: {hotel_room.get_services()}")
 print(f"Payment Method: {payment.get_payment_Method()}")
 print(f"Payment Date: {payment.get_payment_Date()}")
