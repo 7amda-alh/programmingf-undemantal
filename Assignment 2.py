@@ -160,7 +160,8 @@ class Customer:
     def make_purchase(self):
         if not self.__cart.get_cart_items(): #Check if the shopping cart is empty
             raise Exception("Shopping cart is empty. Add items to the cart before making a purchase.")
-        order = Order(self, self.__cart) #Composition: Order created with Customer and ShoppingCart
+        #Here shows composition order with customer
+        order = Order(self, self.__cart) #Composition: Order created with Customer
         self.__cart = ShoppingCart() #Reset the shopping cart after purchase
         print("Purchase completed.") #Confirm purchase
         return order
@@ -185,7 +186,7 @@ class Order:
         self.__order_date = date.today() #Automatically set to today's date
         self.__total_amount = 0.0  # Initialize total_amount
         self.calculate_total_amount() # Calculates the total amount initially
-        self.__customer = customer # Composition with Customer
+        self.__customer = customer #  with Customer apply for discount calls
         self.__payment = Payment(self) # Composition with Payment
         self.apply_discounts()  # Apply discounts if any
 
